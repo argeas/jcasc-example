@@ -1,10 +1,9 @@
 pipeline {
     agent any
-
         stages {
-            stage('Run Tests') {
-                dir ('testcases') {
+            stage('Run Tests') {                
                 steps {
+                    dir ('testcases') {
                     
                     script {
                         
@@ -12,9 +11,9 @@ pipeline {
                         """
                         echo "Hello from JCASC WORLD"
                     
-                }
-            }        
+                    }
+                }        
             }
-            }
+        }
     }
 }
