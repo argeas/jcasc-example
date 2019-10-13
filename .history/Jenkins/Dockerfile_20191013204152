@@ -1,0 +1,14 @@
+# FROM jenkins/jenkins:lts
+FROM jenkins/jnlp-slave:alpine as jnlp
+
+FROM python:alpine
+
+RUN apk -U add openjdk8-jre
+
+COPY --from=jnlp /usr/local/bin/jenkins-agent /usr/local/bin/jenkins-agent
+COPY --from=jnlp /usr/share/jenkins/agent.jar /usr/share/jenkins/agent.jar
+
+COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
+COPY jenkins.yaml /usr/share/jenkins/ref/jenkins.yaml
+
+RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt

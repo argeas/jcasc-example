@@ -1,0 +1,13 @@
+configuration-as-code-support:latest
+workflow-aggregator:latest
+pipeline-maven:latest
+job-dsl:latest
+git:latest
+github:latest
+configuration-as-code:latest
+matrix-auth:latest
+authorize-project:latest
+
+workflow-cps:latest
+workflow-job:latest
+antisamy-markup-formatter:latest

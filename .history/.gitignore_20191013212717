@@ -1,0 +1,5 @@
+# VScode / IDEA setting
+#############
+.project
+.idea
+.vscode
