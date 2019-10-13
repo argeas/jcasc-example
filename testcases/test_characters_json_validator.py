@@ -52,13 +52,12 @@ def validate_json_params(response_results):
 
     for single_obj in response_results:
 
-        result = numpy.in1d(VALID_CHARACTER_KEYS, list(single_obj.keys()))  
+        result = numpy.in1d(VALID_CHARACTER_KEYS, list(single_obj.keys()))
 
         assert all(result) == True, "A parameter was missing from the Json response" \
                                     "Id with invalid params is: {id} ".format(id=single_obj['id'])
 
         assert len(VALID_CHARACTER_KEYS) == len(list(single_obj.keys())), "got more than expected"
-
 
 def get_hash_and_ts_param():
 
