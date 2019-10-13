@@ -20,6 +20,9 @@ with open(json_characters_template_file_path) as f:
 logging.basicConfig(level=logging.INFO)
 logging.getLogger().setLevel(level=logging.INFO)
 
+
+PRIVATE_KEY = os.environ['MARVEL_PRIVATE_KEY'])
+PUBLIC_KEY = os.environ['MARVEL_PUBLIC_KEY'])
 PRIVATE_KEY = '6ec8f2171591da71c90dfba20fa3300a5ce9d2f6'
 PUBLIC_KEY = '5cad12f837c7b8615de38a6c18e0f070'
 PAGE_SIZE = 100
