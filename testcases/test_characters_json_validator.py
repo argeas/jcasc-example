@@ -22,7 +22,7 @@ logging.getLogger().setLevel(level=logging.INFO)
 
 PRIVATE_KEY = '6ec8f2171591da71c90dfba20fa3300a5ce9d2f6'
 PUBLIC_KEY = '5cad12f837c7b8615de38a6c18e0f070'
-PAGE_SIZE = 1
+PAGE_SIZE = 100
 
 #PUBLIC_KEY = os.getenv('MARVEL_PUBLIC_KEY')
 #PRIVATE_KEY = os.getenv('MARVEL_PRIVATE_KEY')
@@ -122,15 +122,13 @@ def get_marvel_characters_json(page_size, total_pages):
             raise type(e)("Marvel characters API repsonce is: {response}"
                   " Error is: {e}".format(response=marvel_characters_response, e=e))
 
-    pass
-
 def test_validate_characters_json_structure():
 
     # result = numpy.in1d(VALID_CHARACTER_KEYS ,["id", "name", "description", "resourceURI",
     #                     "thumbnail", "comics", "series", "stories", "events", "urls"])
     # print(result)
-    # get_marvel_characters_json(PAGE_SIZE, get_results_size(PAGE_SIZE))
-    get_marvel_characters_json(1, 1)
+    get_marvel_characters_json(PAGE_SIZE, get_results_size(PAGE_SIZE))
+    #get_marvel_characters_json(1, 1)
 
 
 if __name__ == "__main__":
