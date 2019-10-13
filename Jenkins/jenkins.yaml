@@ -1,5 +1,4 @@
 jenkins:
-  systemMessage: "AutomatingGuy demo: configured automatically with JCasC plugin\n\n"
   securityRealm:
     local:
       allowsSignup: false
@@ -23,38 +22,13 @@ security:
           strategy: triggeringUsersAuthorizationStrategy
 unclassified:
   location:
-    url: http://localhost:8080/
-# credentials:
-#   system:
-#     domainCredentials:
-#       credentials:
-#         - certificate:
-#             scope: GLOBAL
-#             id: ssh_private_key
-#             keyStoreSource:
-#               fileOnMaster:
-#                 keyStoreFile: /docker/secret/id_rsa      
-  nodes:
-    - permanent:
-        name: "agent-demo"
-        remoteFS: "/home/jenkins"
-        launcher:
-          jnlp:
-
-  slaveAgentPort: 50000
-  agentProtocols:
-    - "jnlp2"
-tool:
-  git:
-    installations:
-      - name: git
-        home: /usr/local/bin/git
+    url: http://localhost:8080/  
 credentials:
   system:
     domainCredentials:
       credentials:
         - certificate:
-            scope: SYSTEM
+            scope: GLOBAL
             id: ssh_private_key
             keyStoreSource:
               fileOnMaster:

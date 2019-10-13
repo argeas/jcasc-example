@@ -7,6 +7,8 @@ github:latest
 configuration-as-code:latest
 matrix-auth:latest
 authorize-project:latest
+credentials:latest
+ssh-credentials:latest
 workflow-cps:latest
 workflow-job:latest
 antisamy-markup-formatter:latest
