@@ -1,0 +1,64 @@
+jenkins:
+  systemMessage: "AutomatingGuy demo: configured automatically with JCasC plugin\n\n"
+tool:
+  git:
+    installations:
+    - home: "git"
+      name: "Default"
+  maven:
+    installations:
+    - name: "Maven 3"
+      properties:
+      - installSource:
+          installers:
+            - maven:
+                id: "3.5.4"
+jobs:
+  - script: >
+      pipelineJob('pipeline') {
+          definition {
+              cpsScm {
+                  scriptPath 'Jenkinsfile'
+                  scm {
+                    git {
+                        remote { url 'https://github.com/argeas/jcasc-example.git' }
+                        branch '*/docker-for-mac'
+                        extensions {}
+                    }
+                  }
+              }
+          }
+      }
+jenkins:
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: admin
+          password: admin
+
+  nodes:
+    - permanent:
+        name: "static-agent"
+        remoteFS: "/home/jenkins"
+        launcher:
+          jnlp:
+
+  slaveAgentPort: 50000
+  agentProtocols:
+    - "jnlp2"
+tool:
+  git:
+    installations:
+      - name: git
+        home: /usr/local/bin/git
+credentials:
+  system:
+    domainCredentials:
+      credentials:
+        - certificate:
+            scope: SYSTEM
+            id: ssh_private_key
+            keyStoreSource:
+              fileOnMaster:
+                keyStoreFile: /docker/secret/id_rsa

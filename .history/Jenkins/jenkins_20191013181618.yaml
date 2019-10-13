@@ -1,0 +1,67 @@
+JCasC:
+    enabled: true
+    configScripts:
+      default: |
+        jenkins:
+          securityRealm:
+            local:
+              allowsSignup: false
+              users:
+                - id: admin
+                  password: hunter2
+          authorizationStrategy:
+            globalMatrix:
+              permissions:
+                - "Overall/Administer:admin"
+                - "Overall/Read:authenticated"
+          crumbIssuer:
+            standard:
+              excludeClientIPFromCrumb: false
+          remotingSecurity:
+            enabled: true
+        security:
+          queueItemAuthenticator:
+            authenticators:
+              - global:
+                  strategy: triggeringUsersAuthorizationStrategy
+        unclassified:
+          location:
+            url: http://localhost:8080/
+        credentials:
+          system:
+            domainCredentials:
+            - credentials:
+              - basicSSHUserPrivateKey:
+                  scope: GLOBAL
+                  id: "github-ssh-keys"
+                  username: "nexmo-ci"
+                  passphrase: ""
+                  description: "SSH Credentials for git to GitHub"
+                  privateKeySource:
+                    directEntry:
+                      privateKey: ${github-ssh-private-key}
+        jobs:
+          - script: >
+              job('demo') {
+                steps {
+                  shell('echo Hello World!')
+                }
+              }
+          - script: >
+              pipelineJob('pipeline-demo') {
+                definition {
+                  cpsScm {
+                    scm {
+                      git {
+                        remote {
+                          url('git@github.com:nexmoinc/k8s-apps.git')
+                          credentials('github-ssh-keys')
+                        }
+                        branches('master')
+                        scriptPath('13-jenkins/Jenkinsfile')
+                      }
+                    }
+                  }
+                }
+              }
+  enableRawHtmlMarkupFormatter: true

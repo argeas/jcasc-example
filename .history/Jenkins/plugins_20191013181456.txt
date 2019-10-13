@@ -1,0 +1,18 @@
+workflow-aggregator:latest
+blueocean:latest
+pipeline-maven:latest
+configuration-as-code-support:latest
+job-dsl:latest
+kubernetes:latest
+    - git:latest
+    - github:latest
+    - configuration-as-code:latest
+    - job-dsl:latest
+    - matrix-auth:latest
+    - authorize-project:latest
+    - credentials:latest
+    - ssh-credentials:latest
+    - workflow-aggregator:latest
+    - workflow-cps:latest
+    - workflow-job:latest
+    - antisamy-markup-formatter:latest
