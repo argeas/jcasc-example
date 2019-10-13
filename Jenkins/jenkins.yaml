@@ -73,7 +73,7 @@ jobs:
             scm {
               git {
                 remote {
-                  url('git@github.com:nexmoinc/k8s-apps.git')
+                  url('https://github.com/argeas/jcasc-example.git')
                   credentials('github-ssh-keys')
                 }
                 branches('master')
