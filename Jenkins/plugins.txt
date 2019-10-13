@@ -6,7 +6,6 @@ job-dsl:latest
 git:latest
 github:latest
 configuration-as-code:latest
-job-dsl:latest
 matrix-auth:latest
 authorize-project:latest
 credentials:latest
