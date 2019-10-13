@@ -24,16 +24,16 @@ security:
 unclassified:
   location:
     url: http://localhost:8080/
-credentials:
-  system:
-    domainCredentials:
-      credentials:
-        - certificate:
-            scope: SYSTEM
-            id: ssh_private_key
-            keyStoreSource:
-              fileOnMaster:
-                keyStoreFile: /docker/secret/id_rsa      
+# credentials:
+#   system:
+#     domainCredentials:
+#       credentials:
+#         - certificate:
+#             scope: GLOBAL
+#             id: ssh_private_key
+#             keyStoreSource:
+#               fileOnMaster:
+#                 keyStoreFile: /docker/secret/id_rsa      
   nodes:
     - permanent:
         name: "agent-demo"
