@@ -2,9 +2,12 @@
 url = "https://pypi.python.org/simple"
 verify_ssl = true
 name = "pypi"
+
 [requires]
 python_version = "3.7.4"
+
 [packages]
+numpy = "==1.17"
 pycryptodome = "==3.9.0"
 pip = "==18.0"
 fabric = "==2.4.0"

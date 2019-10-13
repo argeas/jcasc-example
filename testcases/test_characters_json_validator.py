@@ -52,12 +52,13 @@ def validate_json_params(response_results):
 
     for single_obj in response_results:
 
-        result = numpy.in1d(VALID_CHARACTER_KEYS, list(single_obj.keys()))
+        result = numpy.in1d(VALID_CHARACTER_KEYS, list(single_obj.keys()))  
 
         assert all(result) == True, "A parameter was missing from the Json response" \
                                     "Id with invalid params is: {id} ".format(id=single_obj['id'])
 
         assert len(VALID_CHARACTER_KEYS) == len(list(single_obj.keys())), "got more than expected"
+
 
 def get_hash_and_ts_param():
 
@@ -100,7 +101,7 @@ def get_marvel_characters_json(page_size, total_pages):
         PARAMS.update({'offset': page_size * i})  # offset, how many records to skip
 
         # resp = requests.get(CHARACTER_URL, params)
-        print(f'Requested page xxxxxx {i} of {page_size} records')
+        # print(f'Requested page xxxxxx {i} of {page_size} records')
         try:
             #logging.info("----------- Response Start -----------")
 
@@ -115,7 +116,7 @@ def get_marvel_characters_json(page_size, total_pages):
 
 
             logging.info("Marvel character response: {response}".format(response=marvel_characters_response))
-            print(f'Requested page xxxxxx {i} of {page_size} records')
+            # print(f'Requested page xxxxxx {i} of {page_size} records')
 
 
         except requests.exceptions.RequestException as e:
