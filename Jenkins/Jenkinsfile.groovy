@@ -3,7 +3,7 @@ pipeline {
 
         stages {
             stage('Run Tests') {
-                dir ('testcases')
+                dir ('testcases') {
                 steps {
                     
                     script {
@@ -14,6 +14,7 @@ pipeline {
                     
                 }
             }        
-        }
+            }
+            }
     }
 }
