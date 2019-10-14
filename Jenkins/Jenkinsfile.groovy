@@ -7,7 +7,7 @@ pipeline {
                     
                     script {
                         
-                        sh"""pipenv run pytest -s test_characters_json_validator.py
+                        sh"""pipenc install && pipenv run pytest -s test_characters_json_validator.py
                         """
                         echo "Hello from JCASC WORLD"
                     
