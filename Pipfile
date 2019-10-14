@@ -6,6 +6,7 @@ name = "pypi"
 
 [packages]
 pytest = "==5.2.1"
+pathlib2= "==2.3.5"
 numpy = "==1.17"
 pycryptodome = "==3.9.0"
 pip = "==18.0"
